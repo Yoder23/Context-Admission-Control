@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "context-admission-control"
+version = "1.4.0"
+description = "DecisionRiskBench v1.4 for Context Admission Control vs chunk-stuffing RAG baselines"
+readme = "README.md"
+authors = [ { name = "Your Name", email = "you@example.com" } ]
+urls = { "Homepage" = "https://github.com/OWNER/REPO" }
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["rag", "retrieval", "benchmark", "llm", "context-engineering"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+decision-risk-bench = "benchmarks.decision_risk.run:main"
+decision-risk-export-prompts = "benchmarks.decision_risk.export_llm_eval_prompts:main"
+decision-risk-llm-eval = "benchmarks.decision_risk.llm_eval:main"
+
+[tool.setuptools.packages.find]
+include = ["cac*", "benchmarks*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

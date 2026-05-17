@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+
+# Local environments
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Local verification outputs
+outputs/tiny_v1_4_verify/
+outputs/*_verify/
+outputs/release_verify*/
+outputs/llm_eval_v1_4_eval/
+
+# Large audit archives should be published as release assets, not committed.
+archived_packages/*.zip
+
+# Packaged benchmark outputs (avoid committing large generated artifacts)
+outputs/
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

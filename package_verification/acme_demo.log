@@ -1,0 +1,335 @@
+Dossier: ren_0000 / Renewal Risk Entity 0000
+Candidates: 15
+
+=== cac ===
+{
+  "method": "cac",
+  "tokens": 75,
+  "sources_admitted": 5,
+  "structured_facts": 2,
+  "summaries": 1,
+  "exact_evidence": 2,
+  "conflicts": 1,
+  "uncertainties": 0,
+  "filled_slots": [
+    "billing_status",
+    "contract_terms",
+    "crm_health_status",
+    "executive_signal",
+    "support_trend"
+  ],
+  "missing_slots": []
+}
+{
+  "account_id": "ren_0000",
+  "task_type": "renewal_risk",
+  "method": "cac",
+  "context_tokens": 75,
+  "sources_admitted": 5,
+  "evidence_score": 1.0,
+  "decision_grade_score": 1.0,
+  "decision_grade_gate_reasons": "none",
+  "slot_fill_rate": 1.0,
+  "exact_clause_preservation": 1.0,
+  "contradiction_recall": 1.0,
+  "insufficient_evidence_calibration": 1.0,
+  "unsupported_claim_rate": 0.0,
+  "distractor_admission_rate": 0.0,
+  "irrelevant_context_share": 0.0,
+  "irrelevant_context_tokens": 0,
+  "over_budget_tokens": 0,
+  "over_budget": false,
+  "quality_per_1k_tokens": 13.3333,
+  "decision_grade_per_1k_tokens": 13.3333,
+  "answer_readiness_score": 1.0,
+  "answer_readiness_safe": true,
+  "filled_gold_slots": [
+    "billing_status",
+    "contract_terms",
+    "crm_health_status",
+    "executive_signal",
+    "support_trend"
+  ],
+  "missing_gold_slots": [],
+  "packet_missing_slots": [],
+  "generated_answer": "Decision answer for Renewal Risk Entity 0000 (renewal_risk). Decision: ESCALATE_WITH_CONFLICT. Conflict: admitted evidence contains conflicting signals that must be resolved by authority and recency. Evidence cited: - [ren_0000_contract] contract exact evidence for contract_terms: Non-payment of undisputed fees for more than forty-five days after notice constitutes material breach and may permit termination after a thirty-day cure period. - [ren_0000_exec] email exact evidence for executive_signal: VP Operations wrote: We cannot recommend renewal unless outages are fixed before review. - [ren_0000_billing] billing structured_fact evidence for billing_status: Invoice is 52 days overdue; two p",
+  "generated_answer_score": 1.0,
+  "generated_answer_safe": true,
+  "generated_answer_slot_coverage": 1.0,
+  "generated_answer_exact_use": 1.0,
+  "generated_answer_missing_disclosure": 1.0,
+  "generated_answer_contradiction_handling": 1.0,
+  "generated_answer_citation_support": 1.0,
+  "generated_answer_caps": "none",
+  "generated_answer_per_1k_tokens": 13.3333
+}
+Audit sample:
+[
+  {
+    "candidate": "ren_0000_contract",
+    "source_type": "contract",
+    "admission_decision": "admitted",
+    "representation": "exact_excerpt",
+    "admission_reason": "fills required slot(s): contract_terms; high-authority source; potentially contradicts or qualifies other evidence; task-critical evidence",
+    "representation_reason": "matched exact-wording evidence slot; preserve source language",
+    "fills_slots": [
+      "contract_terms"
+    ],
+    "token_cost": 22,
+    "scores": {
+      "admission_score": 5.3521,
+      "relevance": 0.35,
+      "authority": 0.99,
+      "freshness": 0.2878,
+      "novelty": 1.0,
+      "contradiction_potential": 0.45,
+      "task_criticality": 0.7
+    }
+  },
+  {
+    "candidate": "ren_0000_exec",
+    "source_type": "email",
+    "admission_decision": "admitted",
+    "representation": "exact_excerpt",
+    "admission_reason": "fills required slot(s): executive_signal; high-authority source; recent evidence; potentially contradicts or qualifies other evidence; task-critical evidence",
+    "representation_reason": "contractual obligation or ambiguity requires exact wording",
+    "fills_slots": [
+      "executive_signal"
+    ],
+    "token_cost": 17,
+    "scores": {
+      "admission_score": 4.775,
+      "relevance": 0.3,
+      "authority": 0.86,
+      "freshness": 0.9091,
+      "novelty": 1.0,
+      "contradiction_potential": 0.45,
+      "task_criticality": 0.7
+    }
+  },
+  {
+    "candidate": "ren_0000_billing",
+    "source_type": "billing",
+    "admission_decision": "admitted",
+    "representation": "structured_fact",
+    "admission_reason": "fills required slot(s): billing_status; high-authority source; recent evidence; potentially contradicts or qualifies other evidence",
+    "representation_reason": "billing is structured operational evidence",
+    "fills_slots": [
+      "billing_status"
+    ],
+    "token_cost": 10,
+    "scores": {
+      "admission_score": 4.6985,
+      "relevance": 0.3,
+      "authority": 0.97,
+      "freshness": 0.9677,
+      "novelty": 1.0,
+      "contradiction_potential": 0.55,
+      "task_criticality": 0.42
+    }
+  },
+  {
+    "candidate": "ren_0000_support",
+    "source_type": "support",
+    "admission_decision": "admitted",
+    "representation": "summary",
+    "admission_reason": "fills required slot(s): support_trend; high-authority source; recent evidence; potentially contradicts or qualifies other evidence",
+    "representation_reason": "support evidence is best represented as a trend summary",
+    "fills_slots": [
+      "support_trend"
+    ],
+    "token_cost": 16,
+    "scores": {
+      "admission_score": 4.6614,
+      "relevance": 0.35,
+      "authority": 0.9,
+      "freshness": 0.9375,
+      "novelty": 1.0,
+      "contradiction_potential": 0.55,
+      "task_criticality": 0.42
+    }
+  }
+]
+
+=== schema_aware_chunk_rag_k8 ===
+{
+  "method": "schema_aware_chunk_rag_k8",
+  "tokens": 105,
+  "sources_admitted": 8,
+  "structured_facts": 0,
+  "summaries": 0,
+  "exact_evidence": 8,
+  "conflicts": 1,
+  "uncertainties": 0,
+  "filled_slots": [
+    "billing_status",
+    "contract_terms",
+    "crm_health_status",
+    "executive_signal",
+    "support_trend"
+  ],
+  "missing_slots": []
+}
+{
+  "account_id": "ren_0000",
+  "task_type": "renewal_risk",
+  "method": "schema_aware_chunk_rag_k8",
+  "context_tokens": 105,
+  "sources_admitted": 8,
+  "evidence_score": 0.9722,
+  "decision_grade_score": 0.8,
+  "decision_grade_gate_reasons": "irrelevant_context_overload;unsupported_evidence",
+  "slot_fill_rate": 1.0,
+  "exact_clause_preservation": 1.0,
+  "contradiction_recall": 1.0,
+  "insufficient_evidence_calibration": 1.0,
+  "unsupported_claim_rate": 0.375,
+  "distractor_admission_rate": 0.375,
+  "irrelevant_context_share": 0.2667,
+  "irrelevant_context_tokens": 28,
+  "over_budget_tokens": 0,
+  "over_budget": false,
+  "quality_per_1k_tokens": 9.2587,
+  "decision_grade_per_1k_tokens": 7.619,
+  "answer_readiness_score": 0.88,
+  "answer_readiness_safe": true,
+  "filled_gold_slots": [
+    "billing_status",
+    "contract_terms",
+    "crm_health_status",
+    "executive_signal",
+    "support_trend"
+  ],
+  "missing_gold_slots": [],
+  "packet_missing_slots": [],
+  "generated_answer": "Decision answer for Renewal Risk Entity 0000 (renewal_risk). Decision: ESCALATE_WITH_CONFLICT. Conflict: admitted evidence contains conflicting signals that must be resolved by authority and recency. Evidence cited: - [ren_0000_contract] contract exact evidence for contract_terms: Non-payment of undisputed fees for more than forty-five days after notice constitutes material breach and may permit termination after a thirty-day cure period. - [ren_0000_billing] billing exact evidence for billing_status: Invoice is 52 days overdue; two prior invoices were late. - [ren_0000_support] support exact evidence for support_trend: Three unresolved P1 escalations mention renewal risk. - [ren_0000_exec] ",
+  "generated_answer_score": 0.8,
+  "generated_answer_safe": true,
+  "generated_answer_slot_coverage": 1.0,
+  "generated_answer_exact_use": 1.0,
+  "generated_answer_missing_disclosure": 1.0,
+  "generated_answer_contradiction_handling": 1.0,
+  "generated_answer_citation_support": 1.0,
+  "generated_answer_caps": "answer_distractor_overload",
+  "generated_answer_per_1k_tokens": 7.619
+}
+
+=== oracle_candidate_rag_k8 ===
+{
+  "method": "oracle_candidate_rag_k8",
+  "tokens": 109,
+  "sources_admitted": 8,
+  "structured_facts": 0,
+  "summaries": 0,
+  "exact_evidence": 8,
+  "conflicts": 1,
+  "uncertainties": 0,
+  "filled_slots": [
+    "billing_status",
+    "contract_terms",
+    "crm_health_status",
+    "executive_signal",
+    "support_trend"
+  ],
+  "missing_slots": []
+}
+{
+  "account_id": "ren_0000",
+  "task_type": "renewal_risk",
+  "method": "oracle_candidate_rag_k8",
+  "context_tokens": 109,
+  "sources_admitted": 8,
+  "evidence_score": 0.9716,
+  "decision_grade_score": 0.8,
+  "decision_grade_gate_reasons": "irrelevant_context_overload;unsupported_evidence",
+  "slot_fill_rate": 1.0,
+  "exact_clause_preservation": 1.0,
+  "contradiction_recall": 1.0,
+  "insufficient_evidence_calibration": 1.0,
+  "unsupported_claim_rate": 0.375,
+  "distractor_admission_rate": 0.375,
+  "irrelevant_context_share": 0.2936,
+  "irrelevant_context_tokens": 32,
+  "over_budget_tokens": 0,
+  "over_budget": false,
+  "quality_per_1k_tokens": 8.914,
+  "decision_grade_per_1k_tokens": 7.3394,
+  "answer_readiness_score": 0.88,
+  "answer_readiness_safe": true,
+  "filled_gold_slots": [
+    "billing_status",
+    "contract_terms",
+    "crm_health_status",
+    "executive_signal",
+    "support_trend"
+  ],
+  "missing_gold_slots": [],
+  "packet_missing_slots": [],
+  "generated_answer": "Decision answer for Renewal Risk Entity 0000 (renewal_risk). Decision: ESCALATE_WITH_CONFLICT. Conflict: admitted evidence contains conflicting signals that must be resolved by authority and recency. Evidence cited: - [ren_0000_exec] email exact evidence for executive_signal: VP Operations wrote: We cannot recommend renewal unless outages are fixed before review. - [ren_0000_contract] contract exact evidence for contract_terms: Non-payment of undisputed fees for more than forty-five days after notice constitutes material breach and may permit termination after a thirty-day cure period. - [ren_0000_billing] billing exact evidence for billing_status: Invoice is 52 days overdue; two prior invoi",
+  "generated_answer_score": 0.8,
+  "generated_answer_safe": true,
+  "generated_answer_slot_coverage": 1.0,
+  "generated_answer_exact_use": 1.0,
+  "generated_answer_missing_disclosure": 1.0,
+  "generated_answer_contradiction_handling": 1.0,
+  "generated_answer_citation_support": 1.0,
+  "generated_answer_caps": "answer_distractor_overload",
+  "generated_answer_per_1k_tokens": 7.3394
+}
+
+=== fixed_context_rag_k8 ===
+{
+  "method": "fixed_context_rag_k8",
+  "tokens": 116,
+  "sources_admitted": 8,
+  "structured_facts": 0,
+  "summaries": 0,
+  "exact_evidence": 8,
+  "conflicts": 1,
+  "uncertainties": 0,
+  "filled_slots": [],
+  "missing_slots": []
+}
+{
+  "account_id": "ren_0000",
+  "task_type": "renewal_risk",
+  "method": "fixed_context_rag_k8",
+  "context_tokens": 116,
+  "sources_admitted": 8,
+  "evidence_score": 0.9708,
+  "decision_grade_score": 0.8,
+  "decision_grade_gate_reasons": "irrelevant_context_overload;unsupported_evidence",
+  "slot_fill_rate": 1.0,
+  "exact_clause_preservation": 1.0,
+  "contradiction_recall": 1.0,
+  "insufficient_evidence_calibration": 1.0,
+  "unsupported_claim_rate": 0.375,
+  "distractor_admission_rate": 0.375,
+  "irrelevant_context_share": 0.3362,
+  "irrelevant_context_tokens": 39,
+  "over_budget_tokens": 0,
+  "over_budget": false,
+  "quality_per_1k_tokens": 8.3688,
+  "decision_grade_per_1k_tokens": 6.8966,
+  "answer_readiness_score": 0.88,
+  "answer_readiness_safe": true,
+  "filled_gold_slots": [
+    "billing_status",
+    "contract_terms",
+    "crm_health_status",
+    "executive_signal",
+    "support_trend"
+  ],
+  "missing_gold_slots": [],
+  "packet_missing_slots": [],
+  "generated_answer": "Decision answer for Renewal Risk Entity 0000 (renewal_risk). Decision: ESCALATE_WITH_CONFLICT. Conflict: admitted evidence contains conflicting signals that must be resolved by authority and recency. Evidence cited: - [ren_0000_crm] crm exact evidence for unmapped: CRM marks account green and on track. - [ren_0000_support] support exact evidence for unmapped: Three unresolved P1 escalations mention renewal risk. - [ren_0000_contract] contract exact evidence for unmapped: Non-payment of undisputed fees for more than forty-five days after notice constitutes material breach and may permit termination after a thirty-day cure period. - [ren_0000_billing] billing exact evidence for unmapped: Invoi",
+  "generated_answer_score": 0.8,
+  "generated_answer_safe": true,
+  "generated_answer_slot_coverage": 1.0,
+  "generated_answer_exact_use": 1.0,
+  "generated_answer_missing_disclosure": 1.0,
+  "generated_answer_contradiction_handling": 1.0,
+  "generated_answer_citation_support": 1.0,
+  "generated_answer_caps": "answer_distractor_overload",
+  "generated_answer_per_1k_tokens": 6.8966
+}

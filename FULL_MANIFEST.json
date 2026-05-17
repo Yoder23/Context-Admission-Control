@@ -1,0 +1,627 @@
+[
+    {
+        "path":  ".gitignore",
+        "size":  492,
+        "sha256":  "d31a6003977fa9a8abf1de4a7836a6cfe2ec4df6df1fcde43958bc3f3341d6d3"
+    },
+    {
+        "path":  "archived_packages/CAC_v1_2_1_AUDIT_FULL.zip",
+        "size":  32606820,
+        "sha256":  "c5fa228f9e809c43cfa0e4964db177e3066d11d1246fa50d3722ae559e005e87"
+    },
+    {
+        "path":  "archived_packages/CAC_v1_3_1_AUDIT_FULL.zip",
+        "size":  67903121,
+        "sha256":  "35eb0cc0319322b18ca91e283ca3844ecff5af41ac15af3e539e0fde24b1ce96"
+    },
+    {
+        "path":  "archived_packages/CAC_v1_3_1_PUBLIC.zip",
+        "size":  702151,
+        "sha256":  "87d23f6f082eeed2c8d6bebeb0135ee993b464135926c8ac595819ed1c125fea"
+    },
+    {
+        "path":  "AUDIT_NOTES.md",
+        "size":  270,
+        "sha256":  "2debf3a534c024d4836979e3d76d2030a70e66917c341377d7a16117aefdb64d"
+    },
+    {
+        "path":  "benchmarks/__init__.py",
+        "size":  0,
+        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+        "path":  "benchmarks/decision_risk/__init__.py",
+        "size":  0,
+        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+        "path":  "benchmarks/decision_risk/answers.py",
+        "size":  6143,
+        "sha256":  "95bdf417e0c03c711f66119cecca465d832bc39356c0ac228443476297081ccf"
+    },
+    {
+        "path":  "benchmarks/decision_risk/export_llm_eval_prompts.py",
+        "size":  4230,
+        "sha256":  "ff42770e958a6064e85c0a00748587ae95a056a7c14c694ba2ecb18ae47923ac"
+    },
+    {
+        "path":  "benchmarks/decision_risk/generate.py",
+        "size":  9537,
+        "sha256":  "6ff95991926585297b7e56d4aab6fffeb26d1a2689c153765bef041b7f644891"
+    },
+    {
+        "path":  "benchmarks/decision_risk/llm_eval.py",
+        "size":  4718,
+        "sha256":  "7c19edbb74a5460a7bb24dccf47beba8d83884b4a56f73a659d4f509663066c3"
+    },
+    {
+        "path":  "benchmarks/decision_risk/plot.py",
+        "size":  2578,
+        "sha256":  "4095906799f6e1b49f4aa9ce33db1f107d1e50da568874522b5a494165fd34dc"
+    },
+    {
+        "path":  "benchmarks/decision_risk/profiles.py",
+        "size":  3681,
+        "sha256":  "4900c0ab036889dde0e307e20a0d1151d1f0e9f23a84d162cfa7ca820193cc17"
+    },
+    {
+        "path":  "benchmarks/decision_risk/run.py",
+        "size":  14461,
+        "sha256":  "0594899f60f6b53a7f8543d076b798aceef3d4fef9bf1dc45ec6d50db01f9f81"
+    },
+    {
+        "path":  "benchmarks/decision_risk/score.py",
+        "size":  4970,
+        "sha256":  "deb8a70ca69b2435a1e2bf245d5659a33a10b1aa253e2c566998d8454c03fbdd"
+    },
+    {
+        "path":  "benchmarks/decision_risk_human_rewrite/__init__.py",
+        "size":  71,
+        "sha256":  "51931ccfb2d7a7c8b065482b02e312a79674055ec56858864338f432715b994e"
+    },
+    {
+        "path":  "benchmarks/decision_risk_human_rewrite/rewrite.py",
+        "size":  2826,
+        "sha256":  "db7c2c849615ee81119896e0ec967b814d68499e1e1f0ccd302a751723574908"
+    },
+    {
+        "path":  "benchmarks/decision_risk_human_rewrite/run.py",
+        "size":  2756,
+        "sha256":  "ca1146ae2fa31d6420e7469773d219ecc05fcfa51ccceb853ca63b88a13eb45f"
+    },
+    {
+        "path":  "benchmarks/decision_risk_stress/__init__.py",
+        "size":  56,
+        "sha256":  "2e525dcacbd4679514682b960df6f13072b30d635278dfb81075c6399f4a0a68"
+    },
+    {
+        "path":  "benchmarks/decision_risk_stress/run.py",
+        "size":  1435,
+        "sha256":  "5ea7fa7f8193888062c31ff4a565df07a3aff5450b825dad126d56c53f389662"
+    },
+    {
+        "path":  "benchmarks/renewal_risk/__init__.py",
+        "size":  0,
+        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+        "path":  "benchmarks/renewal_risk/generate_dossiers.py",
+        "size":  9345,
+        "sha256":  "9a8ad4e0e3c6e1344e8a3f9f930355be0be7e7170dfda3984da27500707508f2"
+    },
+    {
+        "path":  "benchmarks/renewal_risk/plot.py",
+        "size":  4597,
+        "sha256":  "19d243acb2e8f8d4f66023b1f7208c3b49e3da8d7a3ff6e72bd5e2b603f26f30"
+    },
+    {
+        "path":  "benchmarks/renewal_risk/run.py",
+        "size":  15464,
+        "sha256":  "4f8e509f2e1c7934a7d38b8417c1f3796674d01256bca1f8b8a494b53c50409d"
+    },
+    {
+        "path":  "benchmarks/renewal_risk/score.py",
+        "size":  7776,
+        "sha256":  "555dd6db10c3927bdcf9d73bd7c5e644f71411e620a8b8274ed875b8abc2bf16"
+    },
+    {
+        "path":  "cac/__init__.py",
+        "size":  0,
+        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+        "path":  "cac/baselines/__init__.py",
+        "size":  0,
+        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+        "path":  "cac/baselines/naive_rag.py",
+        "size":  9316,
+        "sha256":  "12aceeb1b3e34e75882b4fd7f355a4fc8068637503e17d6bffd0fe306928d629"
+    },
+    {
+        "path":  "cac/core/__init__.py",
+        "size":  0,
+        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+        "path":  "cac/core/builder.py",
+        "size":  1180,
+        "sha256":  "b43a69700e93a8431783557ecf4a508f95c58f5c1734695403a4d47aa07982ab"
+    },
+    {
+        "path":  "cac/core/expansion.py",
+        "size":  4991,
+        "sha256":  "dc5f5b295ce105c5e23adbde269dfa546de97d6b21dda45ed0b282508e331a78"
+    },
+    {
+        "path":  "cac/core/packet.py",
+        "size":  9333,
+        "sha256":  "3c3fc2ebc2bdf5ba2e113d8285127c5fae80bcf70827ca83682f063e19913a66"
+    },
+    {
+        "path":  "cac/core/reporting.py",
+        "size":  730,
+        "sha256":  "7fc4d00bf3ef889e892681489c0a35db38d4266650c7d8fc21ef65f0a881f1f8"
+    },
+    {
+        "path":  "cac/core/retrieval.py",
+        "size":  1316,
+        "sha256":  "cbee773b3f8246b2691d2f84a45b632d43850fa3c3097ddea0d88bee4beccf8a"
+    },
+    {
+        "path":  "cac/core/schemas.py",
+        "size":  4016,
+        "sha256":  "ecc75e44683ca8ff3093c29c15e884bf018711985f4081477506741afaebe44e"
+    },
+    {
+        "path":  "cac/core/slots.py",
+        "size":  5655,
+        "sha256":  "a9dc23a5f255fd3f6841009a7e19bc70d34b189eb311de7559474e6a45fee619"
+    },
+    {
+        "path":  "cac/core/valuation.py",
+        "size":  10165,
+        "sha256":  "dbcc679fb57bcc0451ca8ed43dcb77987a95a7ef15741b807b954feac9f4b179"
+    },
+    {
+        "path":  "CHANGELOG.md",
+        "size":  539,
+        "sha256":  "3b5c5bf6365229e144bd7a030207ca4fa773b96625e2471397ee2a1bc46ecd19"
+    },
+    {
+        "path":  "CITATION.cff",
+        "size":  296,
+        "sha256":  "926ecb9a7e921c1f80a8ffdc1c287fab8ab0a6ab43b78f7bc602f0851a9cf060"
+    },
+    {
+        "path":  "CONTRIBUTING.md",
+        "size":  989,
+        "sha256":  "e1cda2e4c63f2d655f5053b24c899102e566b444d0c0b51252b297fa46598a36"
+    },
+    {
+        "path":  "examples/acme_demo.py",
+        "size":  1646,
+        "sha256":  "ca45d9e26cbbc9747461ca36516087dab0a30b91e0a23df58b585feb02f2a025"
+    },
+    {
+        "path":  "LICENSE",
+        "size":  1095,
+        "sha256":  "a14c576b4f868c296c39c97794e1fbac5fb092af3e02a3b54bd0f24628e6859f"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/benchmark_report.md",
+        "size":  7697,
+        "sha256":  "d656f89b5e7399f425677156e2fba308463eeea8294b870e183ddef96469dca6"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/budget_curves.csv",
+        "size":  9981,
+        "sha256":  "d29beed7f687ff6b44bde6a6a91676843e021d61ea4f4cfb9ef539505f4d5a69"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/confidence_intervals.csv",
+        "size":  1223,
+        "sha256":  "a6bfdb35958723e37c6cbe11cb2d28c0df6f573a2f57081bdecd00d18c920717"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/confidence_intervals.json",
+        "size":  4628,
+        "sha256":  "d4e11ed899de9ff4ad0002fb83e4f786b8e7b9ede2a4074ddd22ddcba1501193"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/decision_grade_vs_budget.svg",
+        "size":  5394,
+        "sha256":  "ba9c5f46a647ba4afe53f17fed338b0c6daba1ac0179f722d9de0f7396a95e5b"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/distractor_rate_vs_budget.svg",
+        "size":  5399,
+        "sha256":  "a4de898d722e33b65291f7a1285930728b8d52db7f69af060fcc27a4d05fbed7"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/failure_analysis_top200.csv",
+        "size":  289680,
+        "sha256":  "1d0bb3ff56db610fad3c0b3b92a4d26c356beeba41f475b2a6b062211d9643cd"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/failure_analysis_top200.json",
+        "size":  552288,
+        "sha256":  "fdf561616d7770edbf3d45c21e62e2d67966806e51a732a0be523e7b443f8642"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/failure_summary_all.csv",
+        "size":  2399,
+        "sha256":  "287c35ce5270f33bc599594b3171de02dbd7fb5f80bd17b89b47e39331b85dee"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/failure_summary_all.json",
+        "size":  5396,
+        "sha256":  "d1b3ff142d120208545753748f241c4ebfcbfd5869fb5a2f679047224e99ca9f"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/generated_answer_per_1k_vs_budget.svg",
+        "size":  5408,
+        "sha256":  "96c3e6998210dda44cfe70e2836c27f7c718b90e7936c42f6c1b127ab1e69de2"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/generated_answer_score_vs_budget.svg",
+        "size":  5396,
+        "sha256":  "37aefdf2da808d19e20049709ae5f4f967800d0392483a56b557a8fa8ecd0a23"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/min_tokens_to_decision_grade_target.csv",
+        "size":  764,
+        "sha256":  "ceadc1abcd1923290830196afd5ee7023fff480b07f1cd2be450c4a81483d94d"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/min_tokens_to_decision_grade_target.json",
+        "size":  2479,
+        "sha256":  "487b794feb5b9eec168b3809a1131308ba6c694a311c2dfcf52552e06eaba1ff"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/min_tokens_to_generated_answer_target.csv",
+        "size":  780,
+        "sha256":  "2cc53fa9ac7c80e6a62f4e912c05bc36ef825d66e8872efad8c83072b84ce06a"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/min_tokens_to_generated_answer_target.json",
+        "size":  2495,
+        "sha256":  "21ec5d825d9c0c466d9d7326a9b905735050ffc3f246ddf6fc3c0117cd8ee601"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/results.csv",
+        "size":  14640059,
+        "sha256":  "0ce0450a656422959a81b85c605e91c5291d96346ef03ef28cd6725eb37cc2a0"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/summary.csv",
+        "size":  1986,
+        "sha256":  "d12f0976c6e3decb85ac817d5a6f6002249e1693c34726ea771b1fde528fd8bc"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/summary.json",
+        "size":  7962,
+        "sha256":  "cca35afd14aefcb1a7a8dc3b5d0beb766530a3344e587e0910b84610c8b36845"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_n20/task_summary.csv",
+        "size":  6291,
+        "sha256":  "5c7e4b5990fbb277c1ee00a85d0502242302da08dfff9d3b22b6835813277f6a"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/benchmark_report.md",
+        "size":  7827,
+        "sha256":  "0e38780a9f6b32fd91f77d1126d76ac56225204716b42c82e3a8b83ce5848024"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/budget_curves.csv",
+        "size":  8696,
+        "sha256":  "3f0cb13a793bfe4838bea8f21c5274a7ffab1e426c158a0d9b7874b566f19296"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/confidence_intervals.csv",
+        "size":  1211,
+        "sha256":  "dbf1737ce3c0f96c49a79c3ec81e9a5d8fea951378e004fc96dbc6f77e0be783"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/confidence_intervals.json",
+        "size":  4616,
+        "sha256":  "614144c6e7b35e86ae31a573968307ccac55e5d5d3f2b7656b9fef649b4cbfd7"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/decision_grade_vs_budget.svg",
+        "size":  4824,
+        "sha256":  "5c1f9e4d5524ea5fa77279336f82749f0d86ee5f15d20c601dc8f565ec3f805a"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/distractor_rate_vs_budget.svg",
+        "size":  4829,
+        "sha256":  "aa73d60ffc8978a9af66166bddd72bf391b4034bf06fd0b87eae016a4dd9433b"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/failure_analysis_top200.csv",
+        "size":  283610,
+        "sha256":  "5ebbef77229b6d77f4217d5ec9f36b6a7c416f35f9e7e71657f2c2963e6df2cc"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/failure_analysis_top200.json",
+        "size":  544838,
+        "sha256":  "8c6db7279d337d4d50005a2b7e2ee21b74fff4ac7ce963f6c96b226f543f251b"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/failure_summary_all.csv",
+        "size":  2368,
+        "sha256":  "3e0126e65444366a36613d002855da1ba0eb521f61466f65c3472e3e546989ef"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/failure_summary_all.json",
+        "size":  5365,
+        "sha256":  "933025cb69d81ca96d5e8e909caeadf36d48ee81d0f16a435e1f53ec99d52d91"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/generated_answer_per_1k_vs_budget.svg",
+        "size":  4838,
+        "sha256":  "964e4be6204d6faf3770683350509e46e45d5aa3b862cf303cdcbaa20b4924a6"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/generated_answer_score_vs_budget.svg",
+        "size":  4826,
+        "sha256":  "5dbf5749149e1b346e9100def1e68efcb338aa7661ec75e5ddc4578239d479cb"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/min_tokens_to_decision_grade_target.csv",
+        "size":  752,
+        "sha256":  "1bbf1e8e686fc1327c0480e2f6fc772f5e97542a5f6bbeb6a47bf1ba5a8c4b32"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/min_tokens_to_decision_grade_target.json",
+        "size":  2473,
+        "sha256":  "2fbc9aa500885341f84eedc9fcec4fc54fa98cff698285d36685613b374aa082"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/min_tokens_to_generated_answer_target.csv",
+        "size":  767,
+        "sha256":  "5fb045f3a9817fb27818234e73658f33764fa09b35b268b70b39007c97d85f0b"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/min_tokens_to_generated_answer_target.json",
+        "size":  2488,
+        "sha256":  "25997b69a11fdd37b39620abe2c96cfff93e908ce352f044f7a59f3971c9aaeb"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/results.csv",
+        "size":  3478492,
+        "sha256":  "446c7843c3895f46c7d845a11536f86bb754fb126c9dfa42da7cfbc7a8b04a85"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/SEMI_SYNTHETIC_NOTE.md",
+        "size":  281,
+        "sha256":  "3e4c50e120a112482b8efde6a280b987ecfeac380f0c892b3faf3e0c11427eaf"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/summary.csv",
+        "size":  1976,
+        "sha256":  "93fdde7ab770c01b5b35341ca44d73ca4314501a7c8804b04c0e757ac58685f0"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/summary.json",
+        "size":  7952,
+        "sha256":  "53fe43c66e0d9dfb3bc9624278bc6705bd79eca52b5a8c22b394196e0ebaf4ce"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_rewrite/task_summary.csv",
+        "size":  6248,
+        "sha256":  "eb1a8b41f9bbc95ef17928f57404d985c135f68fe5d359f8f7d354378f353a79"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/benchmark_report.md",
+        "size":  7687,
+        "sha256":  "a9ad697ca4ce5062d41ab340f05a28aa7e4c1d69fccc37a799f6a4914fa50806"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/budget_curves.csv",
+        "size":  7375,
+        "sha256":  "4a17a71d5b96ec0e66804dd272826d9cef9f6b36926e8cdb899f5fff8be7d479"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/confidence_intervals.csv",
+        "size":  1210,
+        "sha256":  "db6e42ebf6d65468ee075d391eea1e7b4632ea905761c4819a936aa62477f917"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/confidence_intervals.json",
+        "size":  4615,
+        "sha256":  "ac72814b2c89e311766e9d33569c681efbe425e4a93b2de118515af429f6dbfe"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/decision_grade_vs_budget.svg",
+        "size":  4254,
+        "sha256":  "fa4dd7d5d3b5163077d56bdaa61ee9cea8b30b7fbb8fe23cf9a3d935e0290030"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/distractor_rate_vs_budget.svg",
+        "size":  4259,
+        "sha256":  "b49ba4aa3c4553866356420410efa76c626783cf4c49ee2e731612e403c310ae"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/failure_analysis_top200.csv",
+        "size":  284647,
+        "sha256":  "ebd895f009fb8c9a4baec4729cf9beb777939c771f7a0e64f01446bcf4b6f0d8"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/failure_analysis_top200.json",
+        "size":  546945,
+        "sha256":  "1f0604dcb80e945c37d78438d6e9113dca054986ac83fefceba50e686dab1245"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/failure_summary_all.csv",
+        "size":  2371,
+        "sha256":  "fb64fa6a47803af161a14985160c546fb31a55b998c4110730c6cc2d21fae6b3"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/failure_summary_all.json",
+        "size":  5368,
+        "sha256":  "adb93f464f7d9a98485c55b422c3c282309c154c29a1e2b53d617236f589f94b"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/generated_answer_per_1k_vs_budget.svg",
+        "size":  4268,
+        "sha256":  "d7fd2db452d81e3405a3c6c7099d79b16f1a7d9f0878d9c1a1585a4d60522686"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/generated_answer_score_vs_budget.svg",
+        "size":  4256,
+        "sha256":  "a4b75bfd713e202dce064247f86cba7aa4b1de5b98b4bdea17e66097bb8c06a0"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/min_tokens_to_decision_grade_target.csv",
+        "size":  739,
+        "sha256":  "6b8c4c38fd2fd96c4dd72929ce3e7e98e6f85412fd60b314f318ea52e5b3f0dc"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/min_tokens_to_decision_grade_target.json",
+        "size":  2454,
+        "sha256":  "78007dfe15a86abb49f122aa483aca12cf8dc8b62baf028059dc41da21d1b0dd"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/min_tokens_to_generated_answer_target.csv",
+        "size":  770,
+        "sha256":  "889fa37e873aac6c1b99f6ceb83beab546aff920aa98fae01ec4c473bee43316"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/min_tokens_to_generated_answer_target.json",
+        "size":  2485,
+        "sha256":  "63dab58910cafa76be19b49dd1c6e9b19325f013c9834f8dbd963efa9c6c5699"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/results.csv",
+        "size":  2790801,
+        "sha256":  "7ca588a3956b0a9b7cf1e96fda4c22fc3e1f737755c9ff21a26794bef1c592c2"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/STRESS_SUITE_NOTE.md",
+        "size":  239,
+        "sha256":  "65397e9ddd33ca44e689e6bbf022b13dbb04171cb6f1fb3706c3b376bcc45f97"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/summary.csv",
+        "size":  1971,
+        "sha256":  "92ad534e7403303b15279fb9a368809aec38329d9e82e2b52dc6f76d6e631dac"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/summary.json",
+        "size":  7947,
+        "sha256":  "f86e5796f3ab73bfd35d457a6c752627eb6176b9f32aa58d355d59379d37901a"
+    },
+    {
+        "path":  "outputs/decision_risk_v1_4_stress/task_summary.csv",
+        "size":  6197,
+        "sha256":  "444cd36dd3cebe263e2294acbf41c5b71e539e2d82ed840477a53727730fd38b"
+    },
+    {
+        "path":  "outputs/llm_eval_v1_4/prompts.jsonl",
+        "size":  204534,
+        "sha256":  "c3db2930bdbf622767da0969197cb70368230685f7e7f0e876e1eb31701108dc"
+    },
+    {
+        "path":  "PACKAGE_NOTES.md",
+        "size":  283,
+        "sha256":  "c5a7505a4c7d80e427b3e5433dee4af407b809e6907c9c62a1e7426f7813784d"
+    },
+    {
+        "path":  "package_verification/acme_demo.log",
+        "size":  12494,
+        "sha256":  "29eb8a3b0a3e466f05923383cc4b4880a54a1701bc0f19c123424e9b6390743e"
+    },
+    {
+        "path":  "package_verification/pytest.log",
+        "size":  98,
+        "sha256":  "4bc723534368cae7a98c3a48888f5bdd267d42c722661a186fe9dc9679cec951"
+    },
+    {
+        "path":  "package_verification/smoke.log",
+        "size":  49,
+        "sha256":  "a822da080e4299f78b78b8ab3fd973fbc8aa87b935329a93e49fe21c0d16959c"
+    },
+    {
+        "path":  "package_verification/tests.log",
+        "size":  98,
+        "sha256":  "789f9de089c1bec975c1f575d6907afc3caa3fb8193ef9196b26a9f62113745a"
+    },
+    {
+        "path":  "pyproject.toml",
+        "size":  1233,
+        "sha256":  "b93a9d658f3e15391b47e3177c0e3f5ea61741f575e3080a36226b57085e7f12"
+    },
+    {
+        "path":  "README.md",
+        "size":  6117,
+        "sha256":  "09a367b7322255b3af108249dad66ea371d67be2daedc67086fd57d7cf4b87e9"
+    },
+    {
+        "path":  "RELEASE_CHECKLIST.md",
+        "size":  1099,
+        "sha256":  "6aef8b59522fef8ae885c8081c667b4d9e5ecb9cb95d17a8d14bab91477d4426"
+    },
+    {
+        "path":  "ROW_COUNTS.json",
+        "size":  218,
+        "sha256":  "fa4efbc7192d4171588d47c9aef6bd06200c80ac57fcdc276cf910ecc6e9ebc3"
+    },
+    {
+        "path":  "ROW_COUNTS.md",
+        "size":  226,
+        "sha256":  "50d3d7335652888a9325fab61f983bc3b6e9c1136557f6a6eccf66f8cc4eb2f1"
+    },
+    {
+        "path":  "SECURITY.md",
+        "size":  685,
+        "sha256":  "8bc07b1b77043c355b32e41eb0c9365a61efea04feac3f554132a001895a9692"
+    },
+    {
+        "path":  "tests/run_smoke_tests.py",
+        "size":  696,
+        "sha256":  "1088d55111ec388622e4afe26b853f20b87beac9df6cc6950ae78314a80e108d"
+    },
+    {
+        "path":  "tests/test_exact_wording_fallback.py",
+        "size":  1084,
+        "sha256":  "91e2f1fe11f3fd90b177eb8f50e9e09231d9089a64ddd2be6acc26c51c23afcc"
+    },
+    {
+        "path":  "tests/test_llm_eval_harness.py",
+        "size":  1160,
+        "sha256":  "3ea202149cb90a0461288f329df6a89d9338ec0361fc9429835604ad9466a06e"
+    },
+    {
+        "path":  "tests/test_no_gold_admission.py",
+        "size":  1305,
+        "sha256":  "2e6355ff102e2bcb783b423a2a29a5c5b807dbc6c28372ee9910fa2192cf59e4"
+    },
+    {
+        "path":  "tests/test_plot_outputs.py",
+        "size":  551,
+        "sha256":  "8d91e54518eeae7a5cc0f657965b25eda6b095a8291265d6ccc751faead2879b"
+    },
+    {
+        "path":  "tests/test_release_hygiene.py",
+        "size":  2469,
+        "sha256":  "64c69fabdfb7f12887c5d0610769f63fd74aeb3fdf1fe009a8ce6b9c3d35a672"
+    },
+    {
+        "path":  "tests/test_rewrite_and_stress_smoke.py",
+        "size":  1151,
+        "sha256":  "007c5c13b7c22d3b6b144b1b58c60d81dece724afcb8dd05d5277b14db2cf9b1"
+    },
+    {
+        "path":  "tests/test_row_count.py",
+        "size":  1162,
+        "sha256":  "d390ace7331308847f992e0a0de0f42ffed5aa55968fce263bb778c56d61e0d5"
+    },
+    {
+        "path":  "VERSION",
+        "size":  6,
+        "sha256":  "78b591400c56b7b67b8cb3b2b8a8e65e9093897f02ce0878e6b5405c68620fa7"
+    }
+]
