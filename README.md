@@ -167,21 +167,7 @@ It is **not** production proof.
 
 On synthetic DecisionRiskBench v1.4, CAC achieves stronger aggregate decision-grade and deterministic answer-readiness proxy outcomes than the included chunk-stuffing RAG baselines under same-candidate-pool conditions.
 
-### Not claimed
-
-This repository does **not** prove that:
-
-```text
-RAG is dead in production.
-CAC beats every possible RAG stack.
-Human users prefer CAC.
-Real LLM answers have been shown to improve from CAC packets.
-Synthetic benchmark results guarantee production performance.
-```
-
-The current public line is:
-
-> **RAG is in trouble for evidence-sensitive decision work because chunk relevance is losing to evidence sufficiency under budget.**
+**RAG is in trouble for evidence-sensitive decision work because chunk relevance is losing to evidence sufficiency under budget.**
 
 ---
 
