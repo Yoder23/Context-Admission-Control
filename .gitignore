@@ -36,6 +36,9 @@ outputs/*
 # Exception: LLM eval results are small files worth committing as proof
 !outputs/llm_eval_real/
 !outputs/llm_eval_stress/
+!outputs/llm_eval_budget_crunch/
+!outputs/llm_eval_extreme_noise/
+!outputs/llm_eval_metadata_corruption/
 
 # Editor and OS noise
 .DS_Store

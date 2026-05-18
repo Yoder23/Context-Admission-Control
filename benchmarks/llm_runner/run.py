@@ -80,9 +80,10 @@ def export_prompts(
     distractors: int,
     seed: int,
     output: Path,
+    metadata_noise: float = 0.1,
 ) -> None:
     """Generate decision dossiers and write prompts JSONL."""
-    dossiers = generate_decision_dossiers(n, distractors, seed, list(TASKS))
+    dossiers = generate_decision_dossiers(n, distractors, seed, list(TASKS), metadata_noise=metadata_noise)
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("w", encoding="utf-8") as f:
         for dossier in dossiers:
@@ -97,6 +98,7 @@ def export_prompts(
                     "method": method,
                     "budget": budget,
                     "distractors": distractors,
+                    "metadata_noise": metadata_noise,
                     "prompt": make_prompt(task_type, dossier.entity, packet_context(packet)),
                     "gold_present_slots": dossier.present_gold_slots,
                     "gold_missing_slots": dossier.missing_gold_slots,
@@ -133,7 +135,7 @@ def call_llm(
             rec["model_answer"] = answer
             f.write(json.dumps(rec) + "\n")
 
-    print(f"[llm_runner] Answers written → {answers_path}")
+    print(f"[llm_runner] Answers written -> {answers_path}")
 
 
 # ---------------------------------------------------------------------------
@@ -147,7 +149,7 @@ def write_report(
     n_prompts: int,
 ) -> None:
     lines = [
-        f"# Real-model LLM eval — `{model_name}`",
+        f"# Real-model LLM eval - `{model_name}`",
         "",
         f"Prompts evaluated: **{n_prompts}**",
         "",
@@ -196,7 +198,7 @@ def write_report(
     ]
 
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"[llm_runner] Report → {path}")
+    print(f"[llm_runner] Report -> {path}")
 
 
 # ---------------------------------------------------------------------------
@@ -214,7 +216,7 @@ def main() -> None:
                   --model microsoft/phi-3-mini-4k-instruct \\
                   --output-dir outputs/llm_eval_real
 
-              # Smoke test (GPT-2, incoherent answers — harness test only)
+              # Smoke test (GPT-2, incoherent answers - harness test only)
               python -m benchmarks.llm_runner.run --n 1 --budget 80 \\
                   --model gpt2 --max-new-tokens 64 \\
                   --output-dir outputs/llm_eval_smoke
@@ -225,6 +227,7 @@ def main() -> None:
     ap.add_argument("--n", type=int, default=5, help="Number of accounts to generate.")
     ap.add_argument("--budget", type=int, default=160, help="Token budget for context.")
     ap.add_argument("--distractors", type=int, default=25, help="Distractor items per dossier.")
+    ap.add_argument("--metadata-noise", type=float, default=0.1, help="Fraction of metadata fields to corrupt (0.0-1.0). Default 0.1.")
     ap.add_argument("--seed", type=int, default=42)
 
     # Resume options
@@ -280,7 +283,7 @@ def main() -> None:
         "--judge-max-new-tokens",
         type=int,
         default=80,
-        help="Max tokens for judge responses (default 80 — only needs JSON).",
+        help="Max tokens for judge responses (default 80 -- only needs JSON).",
     )
 
     args = ap.parse_args()
@@ -292,7 +295,7 @@ def main() -> None:
         print(f"[llm_runner] Using existing prompts: {prompts_path}")
     else:
         prompts_path = args.output_dir / "prompts.jsonl"
-        export_prompts(args.n, args.budget, args.distractors, args.seed, prompts_path)
+        export_prompts(args.n, args.budget, args.distractors, args.seed, prompts_path, metadata_noise=args.metadata_noise)
 
     # --- Step 2: LLM call ---
     if args.answers:
@@ -342,7 +345,7 @@ def main() -> None:
 
     # --- Step 5 (optional): LLM-as-judge pass ---
     if args.judge:
-        print("\n[llm_runner] Running LLM-as-judge pass …")
+        print("\n[llm_runner] Running LLM-as-judge pass ...")
         call_judge = load_caller(
             args.model,
             device=args.device,
