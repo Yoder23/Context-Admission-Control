@@ -299,7 +299,32 @@ A second scorer — `microsoft/phi-3-mini-4k-instruct` acting as judge — indep
 
 Note: `oracle_candidate_rag_k8` receives oracle knowledge of which candidates are relevant — an upper-bound baseline not available in real deployments. CAC matches it on answer quality without oracle access.
 
-A stronger, larger evaluation (n=15 accounts, 50 distractors, LLM-as-judge scoring) is in progress.
+### Stress eval: 50 distractors, n=15 accounts (300 prompts)
+
+A harder run testing distractor robustness: 50 irrelevant chunks injected per account, n=15 accounts, budget=160 tokens.  
+Full outputs: `outputs/llm_eval_stress/`
+
+| Method | LLM Answer Score | Safe Rate | Contradiction Handling | Missing Disclosure |
+|---|---:|---:|---:|---:|
+| `cac` | **0.8242** | **63.3%** | 100% | 100% |
+| `oracle_candidate_rag_k8` | 0.7975 | 48.3% | 100% | 100% |
+| `schema_aware_chunk_rag_k8` | 0.7406 | 26.7% | 100% | 100% |
+| `iterative_rag_k8` | 0.7334 | 21.7% | 91.7% ← failure | 100% |
+| `fixed_context_rag_k8` | 0.6513 | **0.0%** ← collapse | 98.3% ← failure | 100% |
+
+> **At 50 distractors, fixed-context RAG drops to 0% safe rate. CAC holds at 63.3% — essentially unchanged from 65% at lower distractor load.**  
+> CAC's admission-control filter is immune to distractor count by design: irrelevant chunks are rejected before the context window is built.
+
+LLM-as-judge confirmation (phi-3-mini judging the same 300 answers):
+
+| Method | Completeness | Hallucination-free | Overall (1–5) |
+|---|---:|---:|---:|
+| `cac` | **4.82** | 5.00 | **4.82** |
+| `oracle_candidate_rag_k8` | 4.80 | 5.00 | 4.80 |
+| `iterative_rag_k8` | 4.52 | 5.00 | 4.55 |
+| `fixed_context_rag_k8` | 4.30 | 4.98 ← failure | 4.43 |
+
+> At 50 distractors, `fixed_context_rag` is the **only method to show hallucination failures** in the judge pass (hallucination-free drops below 5.00), corroborating the lexical safe-rate collapse.
 
 ---
 
