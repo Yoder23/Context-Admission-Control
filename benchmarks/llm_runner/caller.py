@@ -94,7 +94,7 @@ def load_caller(
 
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        torch_dtype="auto" if map_device == "cuda" else None,
+        dtype="auto" if map_device == "cuda" else None,
         device_map=map_device,
         trust_remote_code=trust_remote_code,
     )

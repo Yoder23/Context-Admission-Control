@@ -31,7 +31,11 @@ outputs/llm_eval_v1_4_eval/
 archived_packages/*.zip
 
 # Packaged benchmark outputs (avoid committing large generated artifacts)
-outputs/
+# Use outputs/* (not outputs/) so negations below can un-ignore specific subdirs
+outputs/*
+# Exception: LLM eval results are small files worth committing as proof
+!outputs/llm_eval_real/
+!outputs/llm_eval_stress/
 
 # Editor and OS noise
 .DS_Store

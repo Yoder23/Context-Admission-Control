@@ -1,0 +1,6 @@
+method,n,avg_completeness,avg_hedging,avg_hallucination_free,avg_overall,judge_safe_rate
+cac,20,4.8,4.95,5.0,4.85,1.0
+schema_aware_chunk_rag_k8,20,4.8,4.9,5.0,4.8,1.0
+oracle_candidate_rag_k8,20,4.75,4.75,5.0,4.75,1.0
+iterative_rag_k8,20,4.55,4.95,5.0,4.55,1.0
+fixed_context_rag_k8,20,4.4,4.85,5.0,4.45,1.0

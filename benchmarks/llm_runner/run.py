@@ -35,8 +35,6 @@ Smoke test with GPT-2 (not for publication):
         --output-dir outputs/llm_eval_gpt2_smoke
 """
 
-from __future__ import annotations
-
 import argparse
 import csv
 import json
@@ -52,6 +50,7 @@ from benchmarks.decision_risk.generate import generate_decision_dossiers
 from benchmarks.decision_risk.llm_eval import score_answer, summarize, write_csv
 from benchmarks.decision_risk.profiles import TASKS, build_task_profile
 from benchmarks.llm_runner.caller import load_caller
+from benchmarks.llm_runner.judge import judge_answers, _summarize as judge_summarize, _write_csv as judge_write_csv, _write_report as judge_write_report
 from cac.baselines.naive_rag import (
     fixed_context_rag,
     iterative_rag,
@@ -272,6 +271,17 @@ def main() -> None:
         type=Path,
         default=Path("outputs/llm_eval_real"),
     )
+    ap.add_argument(
+        "--judge",
+        action="store_true",
+        help="After scoring, run an LLM-as-judge pass on the answers using the same model.",
+    )
+    ap.add_argument(
+        "--judge-max-new-tokens",
+        type=int,
+        default=80,
+        help="Max tokens for judge responses (default 80 — only needs JSON).",
+    )
 
     args = ap.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -329,6 +339,29 @@ def main() -> None:
             f"  {row['method']:35s}  score={row['avg_llm_answer_score']:.4f}"
             f"  safe={row['llm_answer_safe_rate']:.2f}"
         )
+
+    # --- Step 5 (optional): LLM-as-judge pass ---
+    if args.judge:
+        print("\n[llm_runner] Running LLM-as-judge pass …")
+        call_judge = load_caller(
+            args.model,
+            device=args.device,
+            max_new_tokens=args.judge_max_new_tokens,
+            trust_remote_code=args.trust_remote_code,
+        )
+        judge_rows = judge_answers(answers_path, call_judge)
+        judge_summary = judge_summarize(judge_rows)
+        judge_write_csv(args.output_dir / "judge_eval.csv", judge_rows)
+        judge_write_csv(args.output_dir / "judge_summary.csv",
+                        [{k: v for k, v in r.items()} for r in judge_summary])
+        judge_write_report(args.output_dir / "judge_report.md",
+                           judge_summary, answers_path, args.model)
+        print("\n[judge] Summary:")
+        for row in judge_summary:
+            print(
+                f"  {row['method']:35s}  overall={row['avg_overall']:.2f}"
+                f"  safe={row['judge_safe_rate']:.0%}"
+            )
 
 
 if __name__ == "__main__":
