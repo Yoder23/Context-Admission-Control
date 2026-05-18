@@ -36,7 +36,24 @@
    See `docs/methodology.md` for details on task design, scoring, and
    benchmark boundaries.
 
-7. Inspect audit package
+7. Run the real-model LLM eval (CAC vs RAG with a local LLM)
+
+   ```bash
+   # Install LLM extras first (downloads ~7 GB for phi-3-mini on first run)
+   pip install "context-admission-control[llm]"
+
+   # Run full pipeline: export prompts → call model → score → report
+   python -m benchmarks.llm_runner.run \
+       --n 5 \
+       --budget 160 \
+       --distractors 25 \
+       --model microsoft/phi-3-mini-4k-instruct \
+       --output-dir outputs/llm_eval_real
+   ```
+
+   Results appear in `outputs/llm_eval_real/llm_eval_report.md`.
+
+8. Inspect audit package
 
    See `RELEASE_CHECKLIST.md`, `AUDIT_NOTES.md`, and `FULL_MANIFEST.md` for
    packaging and verification details.

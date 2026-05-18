@@ -26,11 +26,17 @@ classifiers = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
+llm = [
+    "torch>=2.0",
+    "transformers>=4.40",
+    "accelerate>=0.30",
+]
 
 [project.scripts]
 decision-risk-bench = "benchmarks.decision_risk.run:main"
 decision-risk-export-prompts = "benchmarks.decision_risk.export_llm_eval_prompts:main"
 decision-risk-llm-eval = "benchmarks.decision_risk.llm_eval:main"
+cac-llm-eval = "benchmarks.llm_runner.run:main"
 
 [tool.setuptools.packages.find]
 include = ["cac*", "benchmarks*"]
