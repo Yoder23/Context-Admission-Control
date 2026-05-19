@@ -31,6 +31,9 @@ RUNS = [
     ("B: Distractor flood (d=100)",              "llm_eval_extreme_noise",          160, 100, 0.10),
     ("C: Metadata corruption (noise=0.50)",      "llm_eval_metadata_corruption",    160, 50,  0.50),
     ("Perfect storm (d=100, budget=80)",         "llm_eval_perfect_storm",           80, 100, 0.10),
+    # RAG-challenge scenarios: conditions explicitly designed to favour RAG
+    ("E: Clean signal (d=5, noise=0.0)",                    "llm_eval_clean_signal",     160, 5,   0.00),
+    ("F: Schema home turf (d=25, noise=0.0)",               "llm_eval_schema_home_turf", 160, 25,  0.00),
 ]
 
 # canonical order for display
@@ -79,6 +82,60 @@ def avg_score(rows: list[dict]) -> float:
     if not rows:
         return 0.0
     return sum(float(r["llm_answer_score"]) for r in rows) / len(rows)
+
+
+# ---------------------------------------------------------------------------
+# Table 1b: per-task breakdown for any single run directory
+# ---------------------------------------------------------------------------
+
+def per_task_for_run(dirname: str, label: str) -> str:
+    """Return a markdown per-task safe-rate table for any eval run directory."""
+    path = ROOT / dirname / "llm_answer_eval.csv"
+    if not path.exists():
+        return f"({dirname}/llm_answer_eval.csv not found)\n"
+
+    rows = read_eval_csv(path)
+    by_task_method: dict[str, dict[str, list]] = defaultdict(lambda: defaultdict(list))
+    for r in rows:
+        task   = r.get("task_type", "unknown")
+        method = r.get("method", "unknown")
+        by_task_method[task][method].append(r)
+
+    tasks  = [t for t in TASK_LABELS if t in by_task_method]
+    lines  = [f"### Per-task breakdown: {label}\n"]
+    header = "| Task | " + " | ".join(METHOD_LABELS[m] for m in METHOD_ORDER) + " |"
+    sep    = "|---|" + "---:|" * len(METHOD_ORDER)
+    lines.append(header)
+    lines.append(sep)
+
+    for task in tasks:
+        cells = []
+        for method in METHOD_ORDER:
+            task_rows = by_task_method[task][method]
+            if task_rows:
+                sr = safe_rate(task_rows)
+                cells.append(f"{sr:.0%}")
+            else:
+                cells.append("-")
+        lines.append(f"| {TASK_LABELS[task]} | " + " | ".join(cells) + " |")
+
+    lines.append("")
+    # highlight tasks where any non-oracle baseline beats CAC
+    winners = []
+    for task in tasks:
+        cac_sr = safe_rate(by_task_method[task]["cac"])
+        for method in METHOD_ORDER[1:]:  # skip cac itself
+            m_sr = safe_rate(by_task_method[task].get(method, []))
+            if m_sr > cac_sr:
+                winners.append((TASK_LABELS[task], METHOD_LABELS[method], m_sr, cac_sr))
+    if winners:
+        lines.append("> **RAG wins per-task:**")
+        for task_lbl, method_lbl, m_sr, cac_sr in winners:
+            lines.append(f">   - {task_lbl}: `{method_lbl}` {m_sr:.0%} > CAC {cac_sr:.0%}")
+    else:
+        lines.append("> CAC leads on every task type in this scenario.")
+    lines.append("")
+    return "\n".join(lines)
 
 
 # ---------------------------------------------------------------------------
@@ -203,6 +260,13 @@ def main() -> None:
     print("=" * 70)
     task_section = per_task_table()
     print(task_section)
+
+    print("=" * 70)
+    print("RAG-CHALLENGE PER-TASK BREAKDOWNS")
+    print("=" * 70)
+    for label, dirname, budget, distractors, noise in RUNS:
+        if dirname in ("llm_eval_clean_signal", "llm_eval_unconstrained_budget"):
+            print(per_task_for_run(dirname, label))
 
     print("=" * 70)
     print("BUDGET EFFICIENCY")

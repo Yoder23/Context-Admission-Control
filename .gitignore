@@ -40,6 +40,8 @@ outputs/*
 !outputs/llm_eval_extreme_noise/
 !outputs/llm_eval_metadata_corruption/
 !outputs/llm_eval_perfect_storm/
+!outputs/llm_eval_clean_signal/
+!outputs/llm_eval_schema_home_turf/
 
 # Editor and OS noise
 .DS_Store
