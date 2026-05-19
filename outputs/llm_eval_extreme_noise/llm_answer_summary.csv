@@ -1,0 +1,6 @@
+avg_llm_answer_score,avg_llm_contradiction_handling,avg_llm_missing_disclosure,llm_answer_safe_rate,method,n
+0.8067,1.0,1.0,0.575,cac,80
+0.756,1.0,1.0,0.3625,oracle_candidate_rag_k8,80
+0.7522,1.0,1.0,0.3375,schema_aware_chunk_rag_k8,80
+0.7483,0.9,1.0,0.3,iterative_rag_k8,80
+0.6452,0.9625,1.0,0.0,fixed_context_rag_k8,80
