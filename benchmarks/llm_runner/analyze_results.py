@@ -30,6 +30,7 @@ RUNS = [
     ("A: Budget crunch (budget=80)",             "llm_eval_budget_crunch",          80, 50,  0.10),
     ("B: Distractor flood (d=100)",              "llm_eval_extreme_noise",          160, 100, 0.10),
     ("C: Metadata corruption (noise=0.50)",      "llm_eval_metadata_corruption",    160, 50,  0.50),
+    ("Perfect storm (d=100, budget=80)",         "llm_eval_perfect_storm",           80, 100, 0.10),
 ]
 
 # canonical order for display

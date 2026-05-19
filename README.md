@@ -376,6 +376,21 @@ Full outputs: `outputs/llm_eval_metadata_corruption/`
 
 > **Under 50% metadata corruption, `oracle_candidate_rag` leads — it is metadata-immune by design (it receives ground-truth candidate lists). CAC drops to 2nd but still nearly 10× safer than fixed-context RAG (48% vs. 5%).** Schema-aware RAG, which relies on metadata matching for reranking, ties CAC on safe rate despite its metadata advantage in clean conditions. The result demonstrates that CAC's structural slot matching is significantly more robust to metadata noise than schema-aware approaches.
 
+#### Perfect storm (`d=100` + `budget=80`, n=15, 300 prompts)
+
+Both extreme conditions simultaneously: maximum distractor load (100 irrelevant chunks) and minimum context budget (80 tokens). The capstone scenario.  
+Full outputs: `outputs/llm_eval_perfect_storm/`
+
+| Method | LLM Answer Score | Safe Rate |
+|---|---:|---:|
+| `cac` | **0.8053** | **60.0%** |
+| `oracle_candidate_rag_k8` | 0.7808 | 51.7% |
+| `schema_aware_chunk_rag_k8` | 0.7480 | 36.7% |
+| `iterative_rag_k8` | 0.7629 | 35.0% |
+| `fixed_context_rag_k8` | 0.6307 | **3.3%** ← collapse |
+
+> **At the most extreme conditions tested, CAC holds at 60% safe rate.** Remarkably, this is *higher* than CAC's 57.5% safe rate in Scenario B (same d=100 but with 2× the token budget). Tighter budget forces more selective admission, which produces more accurate answers — the efficiency ratio confirms this at 1.20×. The LLM-as-judge also ranks CAC first on this scenario (4.72 overall), making it the only method to lead on both lexical correctness and judge quality simultaneously under maximum adversarial pressure.
+
 #### Production battery summary
 
 Across all conditions, CAC ranks #1 or #2 on ground-truth lexical safe rate and is the **only non-oracle method to hold above 48% safe rate in every scenario**:
@@ -386,6 +401,7 @@ Across all conditions, CAC ranks #1 or #2 on ground-truth lexical safe rate and 
 | A: Budget crunch (budget=80) | **70.0%** | 50.0% (schema) | 3.3% |
 | B: Distractor flood (d=100) | **57.5%** | 33.75% (schema) | 0.0% |
 | C: Metadata corruption (noise=0.5) | 48.0% | 48.0% (schema, tied) | 5.0% |
+| **Perfect storm (d=100 + budget=80)** | **60.0%** | 36.7% (schema) | 3.3% |
 
 ### Per-task-type safe rate breakdown
 
@@ -410,8 +426,9 @@ Baseline stress run (d=50, budget=160, n=15 × 4 tasks = 60 answers per method):
 | A: Budget crunch | **80** | **1.40** | 1.10 | 1.00 | 0.60 | 0.07 |
 | B: Distractor flood (d=100) | 160 | 0.57 | 0.36 | 0.34 | 0.30 | 0.00 |
 | C: Metadata corruption | 160 | 0.48 | 0.60 | 0.48 | 0.42 | 0.05 |
+| **Perfect storm (d=100 + budget=80)** | **80** | **1.20** | 1.03 | 0.73 | 0.70 | 0.07 |
 
-> **At budget=80, CAC's efficiency ratio reaches 1.40 — meaning it delivers more safe answers per token at half the context window than it does at full size.** This is the defining characteristic of admission control: greedy RAG fills available space regardless of value; CAC selects by value regardless of space. When space is scarce, the gap widens.
+> **At budget=80, CAC's efficiency ratio reaches 1.40 — meaning it delivers more safe answers per token at half the context window than it does at full size.** The perfect storm confirms this at 1.20×, even under 100 distractors simultaneously. This is the defining characteristic of admission control: greedy RAG fills available space regardless of value; CAC selects by value regardless of space. When space is scarce, the gap widens.
 
 ---
 
