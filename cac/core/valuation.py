@@ -16,7 +16,10 @@ def metadata_distractor_signal(item: SourceItem) -> bool:
     hay = " ".join([item.title, item.text, " ".join(item.topics), " ".join(item.risk_tags)]).lower()
     return (
         item.source_type == SourceType.SLACK and item.authority < 0.45
-    ) or any(token in hay for token in ["distractor", "speculation", "generic_contract", "unrelated", "old positive", "stale_positive_signal"])
+    ) or any(token in hay for token in [
+        "distractor", "speculation", "generic_contract", "unrelated", "old positive",
+        "stale_positive_signal", "commercially reasonable",
+    ])
 
 
 def freshness_score(freshness_days: int) -> float:

@@ -94,14 +94,28 @@ def item_matches_slot(item: SourceItem, slot: RequiredEvidenceSlot) -> bool:
     all_risk_tags = set(tag.lower() for tag in slot.all_risk_tags)
     any_topics = set(topic.lower() for topic in slot.any_topics)
     all_topics = set(topic.lower() for topic in slot.all_topics)
-    if any_risk_tags and not (item_tags & any_risk_tags):
-        return False
-    if all_risk_tags and not all_risk_tags.issubset(item_tags):
-        return False
-    if any_topics and not (item_topics & any_topics):
-        return False
-    if all_topics and not all_topics.issubset(item_topics):
-        return False
+    # Primary path: metadata matching.
+    metadata_ok = (
+        (not any_risk_tags or bool(item_tags & any_risk_tags))
+        and (not all_risk_tags or all_risk_tags.issubset(item_tags))
+        and (not any_topics or bool(item_topics & any_topics))
+        and (not all_topics or all_topics.issubset(item_topics))
+    )
+    if not metadata_ok:
+        # Content-based fallback: apply_noise may corrupt topics/risk_tags but
+        # never modifies document title or text, so they are noise-immune.
+        # Normalize underscores to spaces so compound tags (e.g. "payment_default")
+        # match their natural representation in prose ("payment default").
+        hay = " ".join([item.title, item.text]).lower()
+        norm = lambda kw: kw.lower().replace("_", " ")
+        content_ok = (
+            (any_risk_tags and any(norm(t) in hay for t in any_risk_tags))
+            or (any_topics and any(norm(t) in hay for t in any_topics))
+            or (all_topics and any(norm(t) in hay for t in all_topics))
+            or (not any_risk_tags and not any_topics and not all_topics)
+        )
+        if not content_ok:
+            return False
     if slot.exact_wording_required:
         if item.source_type != SourceType.CONTRACT and "exact_wording_required" not in item_tags:
             # No-gold fallback for wording-sensitive emails/notes when noisy metadata
